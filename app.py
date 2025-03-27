@@ -70,5 +70,5 @@ def kill_process(pid):
         logging.error(f"Error terminating process {pid}: {str(e)}")
         return jsonify({'success': False, 'message': f'Error terminating process: {str(e)}'}), 500
 
-if _name_ == '_main_':
+if __name__== '__main__':
     app.run(debug=True)
