@@ -1,4 +1,4 @@
-Real-Time Process Monitoring Dashboard
+# **Real-Time Process Monitoring Dashboard
 
 Monitor system processes and resource usage in real-time with a sleek, user-friendly dashboard.
 
