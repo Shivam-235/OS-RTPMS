@@ -1,7 +1,6 @@
 Real-Time Process Monitoring Dashboard
 
-![Project Banner](https://via.placeholder.com/800x200.png?text=Real-Time+Process+Monitoring+Dashboard)  
-*Monitor system processes and resource usage in real-time with a sleek, user-friendly dashboard.
+Monitor system processes and resource usage in real-time with a sleek, user-friendly dashboard.
 
 #Overview
 
