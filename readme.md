@@ -2,13 +2,13 @@
 
 Monitor system processes and resource usage in real-time with a sleek, user-friendly dashboard.
 
-#Overview
+##Overview
 
 The Real-Time Process Monitoring Dashboard is a web-based application built to provide system administrators with real-time insights into system processes and resource usage. It displays a sortable table of running processes (including PID, name, status, CPU%, and memory%) and visualizes system-wide CPU and memory usage through interactive charts. The dashboard updates every 2 seconds, ensuring up-to-date information, and includes features like process termination, a refresh toggle, and a memory usage breakdown by process.
 
 This project was developed as part of an academic task at Lovely Professional University, focusing on modular development, real-time data visualization, and user-friendly design.
 
-#Features
+## Features
 
 - Real-Time Monitoring: Updates process and system data every 2 seconds.
 - Process Table: Displays a sortable table with columns for PID, Name, Status, CPU Percent, and Memory Percent.
@@ -20,7 +20,7 @@ This project was developed as part of an academic task at Lovely Professional Un
 - Error Handling: Logs errors (e.g., permission denied) to a `process_monitor.log` file for debugging.
 
 
-#Prerequisites
+## Prerequisites
 
 Before running the project, ensure you have the following installed:
 - Python 3.6+: For running the Flask backend.
@@ -28,7 +28,7 @@ Before running the project, ensure you have the following installed:
 - Git: For cloning the repository.
 - A modern web browser (e.g., Chrome, Firefox) to view the dashboard.
 
-#Setup Instructions
+## Setup Instructions
 
 Follow these steps to set up and run the project locally:
 
@@ -58,7 +58,7 @@ Follow these steps to set up and run the project locally:
    ```
    You should see the dashboard with real-time process data and charts.
 
-#Project Structure
+## Project Structure
 
 ```
 RealTimeProcessMonitoringDashboard/
@@ -73,7 +73,7 @@ RealTimeProcessMonitoringDashboard/
 └── README.md                 # This README file
 ```
 
-#Usage
+## Usage
 
 - View Process Data: The table displays all running processes with their PID, name, status, CPU usage, and memory usage. Click on column headers to sort by that column (e.g., sort by CPU% to identify high-CPU processes).
 - Monitor Resource Usage: The CPU usage line chart and memory usage pie chart update every 2 seconds to show trends and breakdowns.
@@ -93,7 +93,7 @@ RealTimeProcessMonitoringDashboard/
 - Version Control:
   - GitHub: For revision tracking and collaboration.
 
-#Troubleshooting
+## Troubleshooting
 
 - Dashboard Not Loading: Ensure the Flask server is running (`python app.py`) and you’re accessing `http://127.0.0.1:5000/`. Check the terminal for error messages.
 - Charts Not Updating: Open the browser’s developer tools (F12 > Console) to check for JavaScript errors. Ensure Chart.js is loaded correctly.
@@ -101,18 +101,18 @@ RealTimeProcessMonitoringDashboard/
 - Table Not Sorting: Verify that the `sortTable` function in `main.js` is working correctly. Check the browser console for errors.
 - Data Not Updating: Ensure the `/api/data` endpoint is returning valid JSON. Check the Network tab in developer tools for failed requests.
 
-#Contributing
+## Contributing
 
 	[Shivam](https://github.com/Shivam-235)
 	[Lanka Vikram Kumar](https://github.com/vikramkumar18)
 	[Bala Vardhan Utla](https://github.com/Vardhan-12)
 
-#Acknowledgments
+## Acknowledgments
 
 - Developed as part of an academic task at Lovely Professional University.
 - Thanks to the open-source community for providing tools like Flask, psutil, Chart.js, and Tailwind CSS.
 
-#Contact
+## Contact
 	[Shivam](https://github.com/Shivam-235)
 	[Lanka Vikram Kumar](https://github.com/vikramkumar18)
 	[Bala Vardhan Utla](https://github.com/Vardhan-12)
