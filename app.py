@@ -54,3 +54,21 @@ def get_process_data():
     prev_times = current_times
     processes.sort(key=lambda p: p['cpu_percent'], reverse=True)
     return {'processes': processes, 'cpu_usage': total_cpu, 'memory_usage': memory}
+  @app.route('/kill/<int:pid>', methods=['POST'])
+def kill_process(pid):
+    try:
+        process = psutil.Process(pid)
+        process.terminate()
+        return jsonify({'success': True, 'message': f'Process {pid} terminated successfully'})
+    except psutil.NoSuchProcess:
+        logging.error(f"Process {pid} not found for termination")
+        return jsonify({'success': False, 'message': f'Process {pid} not found'}), 404
+    except psutil.AccessDenied:
+        logging.error(f"Access denied when trying to terminate process {pid}")
+        return jsonify({'success': False, 'message': f'Access denied for process {pid}'}), 403
+    except Exception as e:
+        logging.error(f"Error terminating process {pid}: {str(e)}")
+        return jsonify({'success': False, 'message': f'Error terminating process: {str(e)}'}), 500
+
+if _name_ == '_main_':
+    app.run(debug=True)
