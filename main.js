@@ -152,48 +152,4 @@ function updateCharts(cpu, processes) {
     memoryPieChart.update();
 }
 
-// Function to kill a process
-async function killProcess(pid) {
-    if (!confirm(`Are you sure you want to terminate process ${pid}?`)) return;
 
-    try {
-        const response = await fetch(`/kill/${pid}`, { method: 'POST' });
-        const result = await response.json();
-        if (result.success) {
-            alert(result.message);
-            // Refresh the table immediately
-            const fetchResponse = await fetch('/api/data');
-            const data = await fetchResponse.json();
-            processes = data.processes;
-            updateTable(data.processes);
-            updateUsage(data.cpu_usage, data.memory_usage);
-            updateCharts(data.cpu_usage, data.processes);
-        } else {
-            alert(result.message);
-        }
-    } catch (error) {
-        console.error('Error terminating process:', error);
-        alert('Failed to terminate process');
-    }
-}
-
-// Function to sort the table
-function sortTable(key) {
-    sortDirection[key] = !sortDirection[key] ? 'asc' : sortDirection[key] === 'asc' ? 'desc' : 'asc';
-    const direction = sortDirection[key] === 'asc' ? 1 : -1;
-
-    processes.sort((a, b) => {
-        let valA = a[key];
-        let valB = b[key];
-
-        if (key === 'name' || key === 'status') {
-            valA = valA.toLowerCase();
-            valB = valB.toLowerCase();
-            return direction * valA.localeCompare(valB);
-        } else {
-            return direction * (valA - valB);
-        }
-    });
-
-    updateTable(processes);
-}
