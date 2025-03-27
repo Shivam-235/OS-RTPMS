@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Process Monitor</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    
+    <style>
+        .chart-container {
+            max-height: 300px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white p-6 shadow-md">
+        <h1 class="text-3xl font-bold text-center">Process Monitor</h1>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container mx-auto p-6 flex flex-col md:flex-row gap-6">
+        <!-- Main Dashboard Area -->
+        <main class="flex-1">
+            <!-- CPU and Memory Usage -->
+            <section class="mb-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-white rounded-lg shadow-lg p-4">
+                        <h2 class="text-lg font-semibold">CPU Usage: <span id="cpu-usage">0</span>%</h2>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-4">
+                        <h2 class="text-lg font-semibold">Memory Usage: <span id="memory-usage">0</span>%</h2>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Charts Section -->
+            <section class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <!-- CPU Usage Chart -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h2 class="text-xl font-semibold mb-4">CPU Usage Over Time</h2>
+                    <div class="chart-container">
+                        <canvas id="cpu-chart"></canvas>
+                    </div>
+                </div>
+                <!-- Memory Usage Pie Chart -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h2 class="text-xl font-semibold mb-4">Memory Usage Breakdown</h2>
+                    <div class="chart-container">
+                        <canvas id="memory-pie-chart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Process Table -->
+            <section class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-xl font-semibold mb-4">Running Processes</h2>
+                <div class="overflow-x-auto">
+                    <table id="process-table" class="min-w-full border-collapse">
+                        <thead>
+                            <tr class="bg-gray-200 text-gray-700">
+                                <th class="py-3 px-4 text-left cursor-pointer" onclick="sortTable('pid')">PID</th>
+                                <th class="py-3 px-4 text-left cursor-pointer" onclick="sortTable('name')">Name</th>
+                                <th class="py-3 px-4 text-left cursor-pointer" onclick="sortTable('status')">Status</th>
+                                <th class="py-3 px-4 text-left cursor-pointer" onclick="sortTable('cpu_percent')">CPU Percent</th>
+                                <th class="py-3 px-4 text-left cursor-pointer" onclick="sortTable('memory_percent')">Memory Percent</th>
+                                <th class="py-3 px-4 text-left">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-600"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <!-- Sidebar for Controls -->
+        <aside class="w-full md:w-64 bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-xl font-semibold mb-4">Controls</h2>
+            <button id="refresh-toggle" class="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 mb-4">
+                Pause Updates
+            </button>
+        </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center p-4 mt-6">
+        <p>© 2025 Process Monitor. All rights reserved.</p>
+    </footer>
+
+
+</body>
+</html>
